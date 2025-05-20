@@ -1,6 +1,5 @@
 using MudBlazor.Services;
-using Finance.Client.Pages;
-using Finance.Components;
+using Finance.Pages;
 
 var builder = WebApplication.CreateBuilder(args);
 
