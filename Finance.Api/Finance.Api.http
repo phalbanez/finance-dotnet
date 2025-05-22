@@ -1,6 +1,27 @@
-@Finance.Api_HostAddress = http://localhost:5098
+@hostaddress = http://localhost:5098
 
-GET {{Finance.Api_HostAddress}}/weatherforecast/
+###
+GET {{hostaddress}}/weatherforecast/
 Accept: application/json
 
 ###
+GET {{hostaddress}}/api
+Accept: application/json
+
+###
+GET {{hostaddress}}/api/culture
+Accept: application/json
+
+###
+GET {{hostaddress}}/api/culture/change?culture=en-US&redirectUri=%2Fapi%2Fculture
+Accept: application/text
+
+###
+POST {{hostaddress}}/api/culture
+content-type: application/json
+
+{
+    "name": "pt-BR",
+    "redirectUri": "/api/culture"
+}
+
