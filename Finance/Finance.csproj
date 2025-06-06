@@ -8,8 +8,14 @@
 
 
   <ItemGroup>
+    <ProjectReference Include="../Finance.Shared/Finance.Shared.csproj" />
     <ProjectReference Include="..\Finance.Client\Finance.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="9.*" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Services/" />
   </ItemGroup>
 
 </Project>
