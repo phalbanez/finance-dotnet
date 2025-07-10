@@ -1,5 +1,4 @@
 using System.Globalization;
-using Finance.Api.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,11 +15,12 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
         new CultureInfo("es-ES")
     };
 
-    options.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("en-US");
+    options.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture(supportedCultures[0]);
     options.SupportedCultures = supportedCultures;
     options.SupportedUICultures = supportedCultures;
 });
 
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
