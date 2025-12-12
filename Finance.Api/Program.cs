@@ -1,4 +1,10 @@
 using System.Globalization;
+using Finance.Api.Data;
+using Microsoft.EntityFrameworkCore;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using Finance.Shared.Dtos;
+using Finance.Api.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +30,15 @@ builder.Services.AddLocalization(options => options.ResourcesPath = "Resources")
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
+}
+);
+
+builder.Services.AddValidatorsFromAssemblyContaining<TestDtoValidator>();
+builder.Services.AddFluentValidationAutoValidation();
 
 var app = builder.Build();
 

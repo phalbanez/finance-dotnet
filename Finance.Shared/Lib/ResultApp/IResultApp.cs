@@ -1,6 +1,6 @@
-namespace Finance.Shared.Results;
+namespace Lib.ResultApp;
 
 public interface IResultApp<out TValue> : IResultBaseApp
 {
-  TValue? Value { get; }
+    TValue? Value { get; }
 }

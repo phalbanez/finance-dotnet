@@ -45,11 +45,11 @@ var localizationOptions = new RequestLocalizationOptions()
 app.UseRequestLocalization(localizationOptions);
 
 // CultureInfo.CurrentCulture = new CultureInfo("pt-BR");
-Console.WriteLine($"Cultures supported: {string.Join(", ", appOptions.SupportedCultures)}");
-Console.WriteLine($"Culture: {CultureInfo.CurrentCulture.Name}");
+// Console.WriteLine($"Cultures supported: {string.Join(", ", appOptions.SupportedCultures)}");
+// Console.WriteLine($"Culture: {CultureInfo.CurrentCulture.Name}");
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+if (app.Environment.IsProduction())
 {
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
